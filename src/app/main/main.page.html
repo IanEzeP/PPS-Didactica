@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+
+  <ion-fab vertical="top" horizontal="start">
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab vertical="top" style="margin-left: 15%;">
+    <ion-fab-button size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-toolbar color="primary">
+    <ion-button aria-label="Logout" color="danger" class="logout" (click)="this.cerrarSesion()">
+      <ion-icon aria-hidden="true" name="log-out-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="menu">
+   <ion-button class="element" *ngFor="let elemento of this.buttonArray" [ngStyle]="{'--background': 'url(' + elemento + ') no-repeat center center / cover'}">
+   <!-- <img src="../../assets/colores/green.png" alt="" >-->
+  </ion-button>
+  </div>
+</ion-content>

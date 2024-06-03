@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>TABLA DIDACTICA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div>
+    <h1>Hola de nuveo!</h1>
+    
+    <form class="needs-validation" [formGroup]="formLog">
+      
+      <ion-input label="Correo" type="email" labelPlacement="floating" formControlName="email"></ion-input>
+      <ion-input label="Clave" type="password" labelPlacement="floating" formControlName="password"></ion-input>
+      <ion-button color="tertiary" expand="block" (click)="this.iniciarSesion()">Jugar</ion-button>
+    </form>
+    
+    <div *ngIf="this.cargaFin == true; then mostrar else esperar"></div>
+
+    <ng-template #mostrar>
+      
+      <ion-select label="Acceso rápido" fill="outline" (ionChange)="onQuickUser($event)">
+        <ion-select-option *ngFor="let item of arrayTestUsers" [value]="item">{{item.perfil}}</ion-select-option>
+      </ion-select>
+    </ng-template>
+    <ng-template #esperar>
+
+      <ion-select label="Cargando" fill="outline"></ion-select>
+    </ng-template>
+
+
+  </div>
+</ion-content>
+
