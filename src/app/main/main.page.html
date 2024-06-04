@@ -44,8 +44,8 @@
 <ion-content [fullscreen]="true">
 
   <div class="menu">
-   <ion-button class="element" *ngFor="let elemento of this.buttonArray" [ngStyle]="{'--background': 'url(' + elemento + ') no-repeat center center / cover'}">
-   <!-- <img src="../../assets/colores/green.png" alt="" >-->
+   <ion-button class="element" *ngFor="let elemento of this.buttonArray[0]; let i = index" (click)="this.onBtnPrincipal(i)"
+   [ngStyle]="{'--background': 'url(' + elemento + ') no-repeat center center / cover'}">
   </ion-button>
   </div>
 </ion-content>
