@@ -14,8 +14,11 @@ export class MainPage implements OnInit {
   public buttonArray: Array<any> = new Array([5],[5],[5]);
   public audioArray: Array<any> = new Array([5],[5],[5]);
 
-  audioSource: HTMLAudioElement = new Audio();
+  public audioSource: HTMLAudioElement = new Audio();
 
+  public lang: string = '';
+  public theme: string = '';
+  
   constructor(private auth: AuthService, private router: Router, private alert: AlertService) { }
 
   ngOnInit() 
@@ -34,29 +37,50 @@ export class MainPage implements OnInit {
     
     this.buttonArray[0] = arrayColors;
     this.audioArray[0] = arrayAudios;
-
-    let sf = new Audio();
   }
 
   //boton cambiar idioma
   //boton cambiar tematica
 
+  onChangeLang(lang: number)
+  {
+    switch (lang)
+    {
+      case 0:
+        this.lang = 'spanish';
+        break;
+      case 1:
+        this.lang = 'english';
+        break;
+      case 2:
+        this.lang = 'portugues';
+        break;
+    }
+  }
+
+  onChangeTheme(theme: number)
+  {
+    switch (theme)
+    {
+      case 0:
+        this.lang = 'colores';
+        break;
+      case 1:
+        this.lang = 'numeros';
+        break;
+      case 2:
+        this.lang = 'animales';
+        break;
+    }
+  }
+
   async onBtnPrincipal(i: number)
   {
-    console.log(this.audioSource.paused);
-    if(this.audioSource.paused) //Espera mucho...
-    {
       try 
       {
-        const assetCompleto = this.audioArray[0][i]; //CAMBIAR POR VARIABLE
+        const assetCompleto = `assets/audios/${this.lang}/${this.theme}/`;
         
         const audioElement = await this.loadAudio(assetCompleto);
-
-        if(!audioElement.paused) //Nunca se dispara
-        {
-          console.log(audioElement);
-          return;
-        }
 
         audioElement.play().then(() => {
           console.log('Audio reproduciendo...');
@@ -68,9 +92,6 @@ export class MainPage implements OnInit {
       {
         console.error('Error al cargar ', error);
       }
-    }
-    console.log(this.audioSource.paused);
-
   }
 
   async loadAudio(url: string): Promise<HTMLAudioElement>
