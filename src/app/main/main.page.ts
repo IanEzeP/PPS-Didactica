@@ -11,36 +11,41 @@ import Swal from 'sweetalert2';
 })
 export class MainPage implements OnInit {
 
+  public lang: string = 'spanish';
+  public theme: string = 'colores';
+  public controlTheme: number = 0;
+
   public buttonArray: Array<any> = new Array([5],[5],[5]);
-  public audioArray: Array<any> = new Array([5],[5],[5]);
 
   public audioSource: HTMLAudioElement = new Audio();
 
-  public lang: string = '';
-  public theme: string = '';
-  
   constructor(private auth: AuthService, private router: Router, private alert: AlertService) { }
 
   ngOnInit() 
   {
-    let arrayColors = ['../../assets/imagenes/colores/yellow.png',
-    '../../assets/imagenes/colores/green.png',
-    '../../assets/imagenes/colores/blue.jpeg',
-    '../../assets/imagenes/colores/purple.png',
-    '../../assets/imagenes/colores/red.jpeg'];
+    let arrayColors = [{ path: 'assets/imagenes/colores/yellow.png', name: 'yellow'},
+      { path: 'assets/imagenes/colores/green.png', name: 'green'},
+      { path: 'assets/imagenes/colores/blue.jpeg', name: 'blue'},
+      { path: 'assets/imagenes/colores/purple.png', name: 'purple'},
+      { path: 'assets/imagenes/colores/red.jpeg', name: 'red'}
+    ];
+    let arrayNumbers = [{ path: 'assets/imagenes/numeros/one.png', name: 'one'},
+      { path: 'assets/imagenes/numeros/two.png', name: 'two'},
+      { path: 'assets/imagenes/numeros/three.png', name: 'three'},
+      { path: 'assets/imagenes/numeros/four.png', name: 'four'},
+      { path: 'assets/imagenes/numeros/five.png', name: 'five'}
+    ];
+    let arrayAnimals = [{ path: 'assets/imagenes/colores/yellow.png', name: 'yellow'},
+      { path: 'assets/imagenes/colores/green.png', name: 'green'},
+      { path: 'assets/imagenes/colores/blue.jpeg', name: 'blue'},
+      { path: 'assets/imagenes/colores/purple.png', name: 'purple'},
+      { path: 'assets/imagenes/colores/red.jpeg', name: 'red'}
+    ];
 
-    let arrayAudios = ['assets/audios/english/colores/yellow.mp3',
-    'assets/audios/english/colores/green.mp3',
-    'assets/audios/english/colores/blue.mp3',
-    'assets/audios/english/colores/purple.mp3',
-    'assets/audios/english/colores/red.mp3'];
-    
     this.buttonArray[0] = arrayColors;
-    this.audioArray[0] = arrayAudios;
+    this.buttonArray[1] = arrayNumbers;
+    this.buttonArray[2] = arrayAnimals;
   }
-
-  //boton cambiar idioma
-  //boton cambiar tematica
 
   onChangeLang(lang: number)
   {
@@ -60,6 +65,7 @@ export class MainPage implements OnInit {
 
   onChangeTheme(theme: number)
   {
+    this.controlTheme = theme;
     switch (theme)
     {
       case 0:
@@ -74,24 +80,24 @@ export class MainPage implements OnInit {
     }
   }
 
-  async onBtnPrincipal(i: number)
+  async onBtnPrincipal(name: string)
   {
-      try 
-      {
-        const assetCompleto = `assets/audios/${this.lang}/${this.theme}/`;
-        
-        const audioElement = await this.loadAudio(assetCompleto);
+    try 
+    {
+      const assetCompleto = `assets/audios/${this.lang}/${this.theme}/${name}.mp3`;
+      
+      const audioElement = await this.loadAudio(assetCompleto);
 
-        audioElement.play().then(() => {
-          console.log('Audio reproduciendo...');
-        }).catch((error) => {
-          console.error('Error al reproducir ', error);
-        });
-      }
-      catch (error) 
-      {
-        console.error('Error al cargar ', error);
-      }
+      audioElement.play().then(() => {
+        console.log('Audio reproduciendo...');
+      }).catch((error) => {
+        console.error('Error al reproducir ', error);
+      });
+    }
+    catch (error) 
+    {
+      console.error('Error al cargar ', error);
+    }
   }
 
   async loadAudio(url: string): Promise<HTMLAudioElement>

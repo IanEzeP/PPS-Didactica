@@ -25,47 +25,6 @@ h1 {
     color: #ffffffea;
 }
 
-ion-button.logout {
-    position: absolute;
-    right: 0;
-    top: 0;
-    
-    height: 100%;
-
-    ion-icon {
-        color: #ffffffea;
-    }
-}
-
-ion-button.element {
-    display: block;
-    height: 17%;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    margin-bottom: 2%;
-    margin-top: 2%;
-
-    //--background: url(../../assets/colores/red.jpeg) no-repeat center center / cover;
-    --box-shadow: none;
-
-    border: solid var(--ion-color-medium);
-    border-radius: 7px;
-}
-
-img {
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-div.menu {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #ffffffea;
-}
-
 ion-fab-button {
     --background: #b7f399;
     --background-activated: #87d361;
@@ -81,3 +40,66 @@ ion-fab-list {
     margin-top: 45px;
     margin-left: -8px;
 }
+
+@media (orientation: portrait)
+{
+    ion-button.element {
+        display: block;
+        height: 17%;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 2%;
+        margin-top: 2%;
+
+        --box-shadow: none;
+    
+        border: solid var(--ion-color-medium);
+        border-radius: 7px;
+    }
+
+    img {
+        width: 50%;
+        height: 100%; 
+    }
+}
+
+@media (orientation: landscape)
+{
+    ion-button.element {
+        height: 81%;
+        width: 19%;
+        margin-top: 0.5rem;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    
+        --box-shadow: none;
+
+        border: solid var(--ion-color-medium);
+        border-radius: 7px;
+    }
+
+    img {
+        width: 100%;
+        height: 50%; 
+    }
+}
+
+ion-button.logout {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    height: 100%;
+
+    ion-icon {
+        color: #ffffffea;
+    }
+}
+
+div.menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffea;
+}
+

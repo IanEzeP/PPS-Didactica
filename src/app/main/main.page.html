@@ -5,13 +5,13 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="bottom">
-      <ion-fab-button>
+      <ion-fab-button (click)="this.onChangeLang(0)">
         <ion-icon name="document"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
+      <ion-fab-button (click)="this.onChangeLang(1)">
         <ion-icon name="color-palette"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
+      <ion-fab-button (click)="this.onChangeLang(2)">
         <ion-icon name="globe"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
@@ -22,13 +22,13 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="bottom">
-      <ion-fab-button>
+      <ion-fab-button (click)="onChangeTheme(0)">
         <ion-icon name="document"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
+      <ion-fab-button (click)="onChangeTheme(1)">
         <ion-icon name="color-palette"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
+      <ion-fab-button (click)="onChangeTheme(2)">
         <ion-icon name="globe"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
@@ -44,8 +44,9 @@
 <ion-content [fullscreen]="true">
 
   <div class="menu">
-   <ion-button class="element" *ngFor="let elemento of this.buttonArray[0]; let i = index" (click)="this.onBtnPrincipal(i)"
-   [ngStyle]="{'--background': 'url(' + elemento + ') no-repeat center center / cover'}">
+   <ion-button class="element" *ngFor="let elemento of this.buttonArray[this.controlTheme];" (click)="this.onBtnPrincipal(elemento.name)"
+   [ngStyle]="{'--background': 'url(' + elemento.path + ') no-repeat center center / cover'}">
+   <img src="{{elemento.path}}"> <!-- AGREGAR NGIF, PARA MOSTRAR IMG SOLO CUANDO NO ES COLOR -->
   </ion-button>
   </div>
 </ion-content>
