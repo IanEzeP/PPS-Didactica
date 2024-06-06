@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { AlertService } from '../services/alert.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,7 +18,7 @@ export class MainPage implements OnInit {
 
   public audioSource: HTMLAudioElement = new Audio();
 
-  constructor(private auth: AuthService, private router: Router, private alert: AlertService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() 
   {
@@ -35,11 +34,11 @@ export class MainPage implements OnInit {
       { path: 'assets/imagenes/numeros/four.png', name: 'four'},
       { path: 'assets/imagenes/numeros/five.png', name: 'five'}
     ];
-    let arrayAnimals = [{ path: 'assets/imagenes/colores/yellow.png', name: 'yellow'},
-      { path: 'assets/imagenes/colores/green.png', name: 'green'},
-      { path: 'assets/imagenes/colores/blue.jpeg', name: 'blue'},
-      { path: 'assets/imagenes/colores/purple.png', name: 'purple'},
-      { path: 'assets/imagenes/colores/red.jpeg', name: 'red'}
+    let arrayAnimals = [{ path: 'assets/imagenes/animales/cat.png', name: 'cat'},
+      { path: 'assets/imagenes/animales/dog.png', name: 'dog'},
+      { path: 'assets/imagenes/animales/elephant.png', name: 'elephant'},
+      { path: 'assets/imagenes/animales/lion.png', name: 'lion'},
+      { path: 'assets/imagenes/animales/sheep.png', name: 'sheep'}
     ];
 
     this.buttonArray[0] = arrayColors;
@@ -69,13 +68,13 @@ export class MainPage implements OnInit {
     switch (theme)
     {
       case 0:
-        this.lang = 'colores';
+        this.theme = 'colores';
         break;
       case 1:
-        this.lang = 'numeros';
+        this.theme = 'numeros';
         break;
       case 2:
-        this.lang = 'animales';
+        this.theme = 'animales';
         break;
     }
   }
