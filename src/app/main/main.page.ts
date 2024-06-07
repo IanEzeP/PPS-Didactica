@@ -10,9 +10,6 @@ import Swal from 'sweetalert2';
 })
 export class MainPage implements OnInit {
 
-  /**
-   * Ajustar tamaños, cambiar color de fondo de botón en animales y números, cambiar color de fondo, cambiar login
-   */
   public lang: string = 'spanish';
   public theme: string = 'colores';
   public controlTheme: number = 0;
