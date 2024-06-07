@@ -1,47 +1,46 @@
-<ion-header [translucent]="true">
-
+<ion-content [fullscreen]="true">
   <ion-fab vertical="top" horizontal="start">
     <ion-fab-button size="small">
-      <ion-icon name="add"></ion-icon>
+      <ion-icon name="earth"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="bottom">
       <ion-fab-button (click)="this.onChangeLang(0)">
-        <ion-icon name="document"></ion-icon>
+        <img src="https://flagcdn.com/32x24/mx.png" srcset="https://flagcdn.com/64x48/mx.png 2x, https://flagcdn.com/96x72/mx.png 3x"
+        width="32" height="24" alt="Mexico">
       </ion-fab-button>
       <ion-fab-button (click)="this.onChangeLang(1)">
-        <ion-icon name="color-palette"></ion-icon>
+        <img src="https://flagcdn.com/32x24/us.png" srcset="https://flagcdn.com/64x48/us.png 2x, https://flagcdn.com/96x72/us.png 3x"
+        width="32" height="24" alt="eeuu">
       </ion-fab-button>
       <ion-fab-button (click)="this.onChangeLang(2)">
-        <ion-icon name="globe"></ion-icon>
+        <img src="https://flagcdn.com/32x24/br.png" srcset="https://flagcdn.com/64x48/br.png 2x, https://flagcdn.com/96x72/br.png 3x"
+        width="32" height="24" alt="Brazil">
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 
-  <ion-fab vertical="top" style="margin-left: 15%;">
+  <ion-fab vertical="top" horizontal="end">
     <ion-fab-button size="small">
-      <ion-icon name="add"></ion-icon>
+      <ion-icon name="happy-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="bottom">
       <ion-fab-button (click)="onChangeTheme(0)">
-        <ion-icon name="document"></ion-icon>
+        <img src="../../assets/imagenes/color_badge.png" width="32" height="32" alt="colors">
       </ion-fab-button>
       <ion-fab-button (click)="onChangeTheme(1)">
-        <ion-icon name="color-palette"></ion-icon>
+        <img src="../../assets/imagenes/numeros/five.png" width="32" height="32" alt="numbers">
       </ion-fab-button>
       <ion-fab-button (click)="onChangeTheme(2)">
-        <ion-icon name="globe"></ion-icon>
+        <img src="../../assets/imagenes/animales/sheep.png" width="32" height="32" alt="animals">
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 
-  <ion-toolbar color="primary">
-    <ion-button aria-label="Logout" color="danger" class="logout" (click)="this.cerrarSesion()">
-      <ion-icon aria-hidden="true" name="log-out-outline"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button size="small" (click)="this.cerrarSesion()">
+      <img src="../../assets/imagenes/open_door.png" >
+    </ion-fab-button>
+  </ion-fab>
 
   <div class="menu">
    <div *ngIf="this.controlTheme == 0; then colors; else otros"></div>
@@ -50,8 +49,8 @@
       [ngStyle]="{'--background': 'url(' + elemento.path + ') no-repeat center center / cover'}"></ion-button>
     </ng-template>
     <ng-template #otros>
-      <ion-button class="element" *ngFor="let elemento of this.buttonArray[this.controlTheme];" (click)="this.onBtnPrincipal(elemento.name)">
-        <img src="{{elemento.path}}">
+      <ion-button color="secondary" class="element" *ngFor="let elemento of this.buttonArray[this.controlTheme];" (click)="this.onBtnPrincipal(elemento.name)">
+        <img class="object" src="{{elemento.path}}">
       </ion-button>
     </ng-template>
   </div>
