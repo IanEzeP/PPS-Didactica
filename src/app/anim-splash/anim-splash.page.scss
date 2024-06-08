@@ -1,0 +1,39 @@
+ion-content {
+    --background: var(--ion-color-tertiary);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+@-webkit-keyframes slide-bottom{0%{-webkit-transform:translateY(0);transform:translateY(0)}100%{-webkit-transform:translateY(10px);transform:translateY(10px)}}@keyframes slide-bottom{0%{-webkit-transform:translateY(0);transform:translateY(0)}100%{-webkit-transform:translateY(400px);transform:translateY(400px)}}
+.logo {
+    height: 250px;
+    margin-top: 20%;
+    -webkit-animation:slide-bottom 1s cubic-bezier(.25,.46,.45,.94) .5s both;animation:slide-bottom 1s cubic-bezier(.25,.46,.45,.94) .5s both;
+}
+
+@-webkit-keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}
+.txt1 {
+    margin-top: 35%;
+
+    background-color: var(--primary-color);
+    color: var(--ion-color-secondary);
+    font-weight: 600;
+    font-size: 35px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    -webkit-animation:scale-up-center .8s cubic-bezier(.39,.575,.565,1.000) infinite alternate both;animation:scale-up-center .8s cubic-bezier(.39,.575,.565,1.000) infinite alternate both;
+}
+
+@-webkit-keyframes rotate-bottom{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:bottom;transform-origin:bottom}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:bottom;transform-origin:bottom}}@keyframes rotate-bottom{0%{-webkit-transform:rotate(0);transform:rotate(0);-webkit-transform-origin:bottom;transform-origin:bottom}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg);-webkit-transform-origin:bottom;transform-origin:bottom}}
+.txt2 {
+    margin-top: 27%;
+
+    background-color: var(--primary-color);
+    color: var(--ion-color-secondary);
+    font-weight: 600;
+    font-size: 35px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    -webkit-animation:rotate-bottom 1s cubic-bezier(.455,.03,.515,.955) .8s infinite alternate both;animation:rotate-bottom 1s cubic-bezier(.455,.03,.515,.955) .8s infinite alternate both;
+}
