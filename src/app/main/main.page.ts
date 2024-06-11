@@ -13,6 +13,7 @@ export class MainPage implements OnInit {
   public lang: string = 'spanish';
   public theme: string = 'colores';
   public controlTheme: number = 0;
+  public controlLang: number = 0;
 
   public buttonArray: Array<any> = new Array([5],[5],[5]);
 
@@ -48,6 +49,7 @@ export class MainPage implements OnInit {
 
   onChangeLang(lang: number)
   {
+    this.controlLang = lang;
     switch (lang)
     {
       case 0:
@@ -113,13 +115,14 @@ export class MainPage implements OnInit {
     Swal.fire(
       {
         heightAuto: false,
-        title: "¿Desea cerrar su sesión?",
-        icon: "warning",
+        imageUrl: "../../assets/imagenes/open_door.png",
+        imageHeight: "150px",
+        imageWidth: "150",
         showCancelButton: true,
-        cancelButtonColor: "#3085d6",
-        confirmButtonColor: "#d33",
-        confirmButtonText: "Cerrar",
-        cancelButtonText: "Cancelar"
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#4CAF50",
+        confirmButtonText: '✔',
+        cancelButtonText: '✖',
       }
     ).then((result) => {
       if (result.isConfirmed) {

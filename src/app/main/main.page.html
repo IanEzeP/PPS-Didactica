@@ -1,7 +1,14 @@
 <ion-content [fullscreen]="true">
   <ion-fab vertical="top" horizontal="start">
-    <ion-fab-button size="small">
-      <ion-icon name="earth"></ion-icon>
+    <ion-fab-button>
+      <div [ngSwitch]="this.controlLang">
+        <img *ngSwitchCase="0" src="https://flagcdn.com/48x36/mx.png" srcset="https://flagcdn.com/96x72/mx.png 2x, https://flagcdn.com/144x108/mx.png 3x"
+          width="48" height="36" alt="Mexico">
+        <img *ngSwitchCase="1" src="https://flagcdn.com/48x36/us.png" srcset="https://flagcdn.com/96x72/us.png 2x, https://flagcdn.com/144x108/us.png 3x"
+          width="48" height="36" alt="eeuu">
+        <img *ngSwitchCase="2" src="https://flagcdn.com/48x36/br.png" srcset="https://flagcdn.com/96x72/br.png 2x, https://flagcdn.com/144x108/br.png 3x"
+          width="48" height="36" alt="Brazil">
+      </div>
     </ion-fab-button>
     <ion-fab-list side="bottom">
       <ion-fab-button (click)="this.onChangeLang(0)">
@@ -20,8 +27,12 @@
   </ion-fab>
 
   <ion-fab vertical="top" horizontal="end">
-    <ion-fab-button size="small">
-      <ion-icon name="happy-outline"></ion-icon>
+    <ion-fab-button>
+      <div [ngSwitch]="this.controlTheme">
+        <img *ngSwitchCase="0" src="../../assets/imagenes/color_badge.png" width="48" height="48" alt="colors">
+        <img *ngSwitchCase="1" src="../../assets/imagenes/numeros/five.png" width="48" height="48" alt="numbers">
+        <img *ngSwitchCase="2" src="../../assets/imagenes/animales/sheep.png" width="48" height="48" alt="animals">
+      </div>
     </ion-fab-button>
     <ion-fab-list side="bottom">
       <ion-fab-button (click)="onChangeTheme(0)">
@@ -37,7 +48,7 @@
   </ion-fab>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button size="small" (click)="this.cerrarSesion()">
+    <ion-fab-button (click)="this.cerrarSesion()">
       <img src="../../assets/imagenes/open_door.png" >
     </ion-fab-button>
   </ion-fab>
